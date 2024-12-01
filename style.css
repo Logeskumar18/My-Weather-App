@@ -1,0 +1,20 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./asset/BG.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.transparent-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.transparent-container-btn{
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ccc;
+}
