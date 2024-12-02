@@ -8,20 +8,33 @@ const Hum = document.getElementById('Hum');
 const Vis = document.getElementById('Vis');
 const TDate = document.getElementById('Date');
 const Time = document.getElementById('Time');
+const Icon = document.getElementById('Icon');
 
-// Btn.addEventListener('click', async () => {
-//     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=madurai&appid=bb5236fe0cf121cd0f443e8dbc78bbc1`, {
-//         method: 'GET'
-//     });
-//     const data = await response.json();
-//     console.log(data); 
-//     Cname.textContent = data.name;
-//     Temp.textContent = Math.round(data.main.temp - 273.15);
-//     W_Speed.textContent = data.wind.speed;
-//     Cli.textContent = data.weather[0].main;
-//     Hum.textContent = data.main.humidity;
-//     Vis.textContent = data.visibility / 1000;
-// });
+Btn.addEventListener('click', async () => {
+    let CityName = City.value;
+    if(CityName === ''){
+        alert('Plese Enter City Name');
+    }else{
+        
+
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=bb5236fe0cf121cd0f443e8dbc78bbc1`, {
+        method: 'GET'
+    });
+    const data = await response.json();
+    console.log(data);
+    Cname.textContent = data.name;
+    Temp.textContent = `${Math.round(data.main.temp - 273.15)} °C`;
+    W_Speed.textContent = data.wind.speed;
+    Cli.textContent = data.weather[0].main;
+    Hum.textContent = data.main.humidity;
+    Vis.textContent = data.visibility / 1000;
+    let Iconcode = data.weather[0].icon;
+    Icon.setAttribute("src", `https://openweathermap.org/img/wn/${Iconcode}@2x.png`);
+
+    }
+
+});
+
 
 const getCurrentDateInfo = () => {
     const today = new Date();
@@ -29,7 +42,7 @@ const getCurrentDateInfo = () => {
     const month = today.getMonth();
     const date = today.getDate();
     const year = today.getFullYear();
-    
+
     return {
         day: day,
         month: month,
@@ -38,7 +51,7 @@ const getCurrentDateInfo = () => {
     };
 }
 const dateInfo = getCurrentDateInfo();
-TDate.textContent =  `${dateInfo.day} ${dateInfo.month} ${dateInfo.date} ${dateInfo.year}`;
+TDate.textContent = `${dateInfo.day} ${dateInfo.month} ${dateInfo.date} ${dateInfo.year}`;
 
 
 setInterval(() => {
