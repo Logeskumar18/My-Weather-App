@@ -7,6 +7,7 @@ const Cli = document.getElementById('Cli');
 const Hum = document.getElementById('Hum');
 const Vis = document.getElementById('Vis');
 const TDate = document.getElementById('Date');
+const Time = document.getElementById('Time');
 
 // Btn.addEventListener('click', async () => {
 //     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=madurai&appid=bb5236fe0cf121cd0f443e8dbc78bbc1`, {
@@ -36,6 +37,14 @@ const getCurrentDateInfo = () => {
         year: year
     };
 }
-
 const dateInfo = getCurrentDateInfo();
 TDate.textContent =  `${dateInfo.day} ${dateInfo.month} ${dateInfo.date} ${dateInfo.year}`;
+
+
+setInterval(() => {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    Time.textContent = `${hours}:${minutes}:${seconds}`;
+}, 1000);

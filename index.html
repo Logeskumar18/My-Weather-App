@@ -15,39 +15,51 @@
 </head>
 
 <body>
-    <h1 class="h1 text-center">Weather App</h1>
-    <div class="container d-flex justify-content-center align-items-center" style="height: 30vh;">
+    <div class="row container-fluid d-flex justify-content-around">
+        <h5 id="Time" class="col-2"></h5>
+        <h1 class="h1 col-8 text-center">Weather App</h1>
+        <h5 id="Date" class="col-2 text-end"></h5>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 20vh;">
         <div class="transparent-container">
             <input type="text" class="border-2 rounded-5 transparent-container-btn fs-5 ps-4 py-1" name="" id="City">
-        <button id="btn" class="ms-2 transparent-container-btn rounded-3 fs-5 px-2"><i class="bi bi-search"></i></button>
+            <button id="btn" class="ms-2 transparent-container-btn rounded-3 fs-5 px-2"><i
+                    class="bi bi-search"></i></button>
         </div>
     </div>
 
     <div class="container transparent-container">
-        <div class="row">
-            <div class="main col-12">
-                <h5 id="Cname">Madurai</h5>
-                <h5 id="Date"></h5>
+        <div class="row mx-0">
+            <div class="main text-center col-12">
+                <h4 id="Cname">Madurai</h4>
                 <h5 id="Cli">Mist</h5>
                 <h5 id="Temp">28</h5>
-                
+
             </div>
-            
-            <div class="wind col-4">
-                <h5 id="W-Speed">1.54</h5>
-            </div>
-           
-            <div class="Humidity col-4">
-                <h5 id="Hum">78</h5>
-            </div>
-            <div class="Visibility col-4">
-                <h5 id="Vis">4</h5>
+
+            <div class="row g-0 d-flex justify-content-around">
+                <div class="wind col-md-12  col-lg-3 text-center transparent-container-btn">
+                    <i class="bi bi-wind"></i>
+                    <h5 id="W-Speed">1.54km/h</h5>
+                    <p>Wind</p>
+                </div>
+
+                <div class="Humidity col-md-12 col-lg-3 text-center transparent-container-btn">
+                    <i class="bi bi-droplet-fill"></i>
+                    <h5 id="Hum">78%</h5>
+                    <p>Humidity</p>
+                </div>
+                <div class="Visibility col-md-12 col-lg-3 text-center transparent-container-btn">
+                    <i class="bi bi-water"></i>
+                    <h5 id="Vis">4 km</h5>
+                    <p>Visibility</p>
+                </div>
             </div>
         </div>
-        
+
     </div>
 
-   
+
 
 
 
