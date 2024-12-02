@@ -9,27 +9,28 @@ const Vis = document.getElementById('Vis');
 const TDate = document.getElementById('Date');
 const Time = document.getElementById('Time');
 const Icon = document.getElementById('Icon');
+const Err = document.getElementById('Err');
 
 Btn.addEventListener('click', async () => {
     let CityName = City.value;
-    if(CityName === ''){
-        alert('Plese Enter City Name');
-    }else{
-        
+    if (CityName === '') {
+        Err.classList.remove('d-none');
+    } else {
 
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=bb5236fe0cf121cd0f443e8dbc78bbc1`, {
-        method: 'GET'
-    });
-    const data = await response.json();
-    console.log(data);
-    Cname.textContent = data.name;
-    Temp.textContent = `${Math.round(data.main.temp - 273.15)} °C`;
-    W_Speed.textContent = data.wind.speed;
-    Cli.textContent = data.weather[0].main;
-    Hum.textContent = data.main.humidity;
-    Vis.textContent = data.visibility / 1000;
-    let Iconcode = data.weather[0].icon;
-    Icon.setAttribute("src", `https://openweathermap.org/img/wn/${Iconcode}@2x.png`);
+
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=bb5236fe0cf121cd0f443e8dbc78bbc1`, {
+            method: 'GET'
+        });
+        const data = await response.json();
+        console.log(data);
+        Cname.textContent = data.name;
+        Temp.textContent = `${Math.round(data.main.temp - 273.15)} °C`;
+        W_Speed.textContent = data.wind.speed;
+        Cli.textContent = data.weather[0].main;
+        Hum.textContent = data.main.humidity;
+        Vis.textContent = data.visibility / 1000;
+        let Iconcode = data.weather[0].icon;
+        Icon.setAttribute("src", `https://openweathermap.org/img/wn/${Iconcode}@2x.png`);
 
     }
 
@@ -51,13 +52,18 @@ const getCurrentDateInfo = () => {
     };
 }
 const dateInfo = getCurrentDateInfo();
-TDate.textContent = `${dateInfo.day} ${dateInfo.month} ${dateInfo.date} ${dateInfo.year}`;
+TDate.textContent = `${dateInfo.day}  ${dateInfo.date}/${dateInfo.month}/${dateInfo.year}`;
 
 
 setInterval(() => {
     const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    Time.textContent = `${hours}:${minutes}:${seconds}`;
+    let options = {
+         hour: 'numeric',
+          minute: 'numeric',
+           second: 'numeric',
+            hour12: true
+         }; 
+    let timeString = now.toLocaleTimeString('en-US', options);
+    Time.textContent = timeString;
+    
 }, 1000);

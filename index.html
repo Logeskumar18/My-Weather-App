@@ -21,14 +21,16 @@
         <h5 id="Date" class="col-2 text-end"></h5>
     </div>
     <div class="container d-flex justify-content-center align-items-center" style="height: 20vh;">
-        <div class="transparent-container">
-            <input type="text" class="border-2 rounded-5 transparent-container-btn fs-5 ps-4 py-1" name="" id="City">
-            <button id="btn" class="ms-2 transparent-container-btn rounded-3 fs-5 px-2"><i
-                    class="bi bi-search"></i></button>
+        <div class="transparent-container d-flex">
+            <div>
+                <input type="text" class="border-2 rounded-5 fs-5 ps-4 py-1" id="City">
+                <span id="Err" class="error text-danger d-block d-none">Enter A City Name!</span>
+            </div>
+            <button id="btn" class="ms-2 rounded-3 fs-5 align-self-start mt-1"><i class="bi bi-search g-0"></i></button>
         </div>
     </div>
 
-    <div class="container transparent-container">
+    <div class="container transparent-container ">
         <div class="row mx-0">
             <div class="main text-center col-12">
                 <h4 id="Cname">Madurai</h4>
