@@ -14,7 +14,7 @@ body {
     border-radius: 5px;
 }
 
-.transparent-container-btn{
+.transparent-container-btn {
     background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #ccc;
 }
@@ -23,9 +23,12 @@ body {
 
 
 @media (max-width: 768px) {
-    #Time, #Date {
+
+    #Time,
+    #Date {
         display: none;
     }
+
     .h1 {
         font-size: 1.5rem;
     }

@@ -10,6 +10,7 @@ const TDate = document.getElementById('Date');
 const Time = document.getElementById('Time');
 const Icon = document.getElementById('Icon');
 const Err = document.getElementById('Err');
+const Weather = document.getElementById('Weather');
 
 Btn.addEventListener('click', async () => {
     let CityName = City.value;
@@ -17,7 +18,7 @@ Btn.addEventListener('click', async () => {
         Err.classList.remove('d-none');
     } else {
 
-
+        Weather.classList.remove('d-none');
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityName}&appid=bb5236fe0cf121cd0f443e8dbc78bbc1`, {
             method: 'GET'
         });
